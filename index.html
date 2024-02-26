@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Mister canvas</title>
+</head>
+
+<body onload="onInit()">
+    <h1>Canvas</h1>
+    <div class="select-shape">
+        <select onchange="onSetShape(value)">
+            <option value=''>Select shape</option>
+            <option value='line'>line</option>
+            <option value='rect'>rect</option>
+            <option value='triangle'>triangle</option>
+            <option value='text'>text</option>
+        </select>
+    </div>
+    <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" accept="image/*" />
+    <div class="buttons">
+        <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download jpeg</a>
+        <button class="btn" onclick="onUploadImg()"> Upload to Facebook </button>
+    </div>
+
+    <div class="colors">
+        <input type="color" id="color" name="colorTxt" form="frmRegister" value="#ADD8E6" id="color"
+            onchange="setColors()" />
+        <input type="color" id="color" name="color" form="frmRegister" value="#FFFFFF" id="color"
+            onchange="setColors()" />
+    </div>
+    <div class="actions">
+        <button onclick="onSave()">Save</button>
+        <button onclick="onLoad()">Load</button>
+        <button onclick="onClearCanvas()">Clear</button>
+    </div>
+
+    <canvas width="450" height="450" onclick="onDraw(event)" onmousedown="onStartLine(event)"
+        onmousemove="onDrawLine(event)" onmouseup="onEndLine(event)"></canvas>
+
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/upload-from-local.js"></script>
+    <script src="js/sharing-on-facebook.js"></script>
+</body>
+
+</html>
